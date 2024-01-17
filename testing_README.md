@@ -1,12 +1,12 @@
 # Testing Setup Instructions
 
 ```
-- Navigate inside sabatini-datajoint-pipeline/ while in sabatini-datajoint conda environment
+- Navigate inside wanglab-datajoint-pipeline/ while in wanglab-datajoint conda environment
 - Rerun editable installation of codebase to make sure that most updated local code is run
 
     pip install -e .
 
-- Launch ipython (type ipython into terminal) after (cd sabatini-datajoint-pipeline/) or  
+- Launch ipython (type ipython into terminal) after (cd wanglab-datajoint-pipeline/) or  
 - Navigate to a jupyter notebook that is configured with the updated conda environment
 
 Next, import the necessary modules from the pipeline:

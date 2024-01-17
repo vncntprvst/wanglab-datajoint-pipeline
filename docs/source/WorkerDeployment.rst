@@ -3,7 +3,7 @@ Worker Deployment (WSL)
 
 The following pipelines can be run via the docker containers: Calcium_Imaging_Worker, Spike_Sorting_Worker, and Standard_Worker.
 
-For the DeepLabCut worker, we will run this from the provided `dlc notebook <https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/notebooks/dlc.ipynb>`_.
+For the DeepLabCut worker, we will run this from the provided `dlc notebook <https://github.com/vncntprvst/wanglab-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/notebooks/dlc.ipynb>`_.
 
 More on proper usage in the :doc:`How To` section.
 
@@ -30,7 +30,7 @@ We will be working in WSL/Ubuntu 20.04 CLI for this section.
 Standard Worker
 ---------------
 
-1. First, create a local ``.env`` file in ``./docker/standard_worker/`` based on the `standard example.env <https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/docker/standard_worker/example.env>`_.
+1. First, create a local ``.env`` file in ``./docker/standard_worker/`` based on the `standard example.env <https://github.com/vncntprvst/wanglab-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/docker/standard_worker/example.env>`_.
 
 You will need to fill in ``DJ_PASS`` (e.g. Datajoint Database Password), ``ROOT_DATA_DIR`` (e.g. local ``/Inbox`` data directory), ``PROCESSED_DATA_DIR`` (e.g. local ``/Outbox`` data directory).
 
@@ -44,7 +44,7 @@ Now that we're in the right place, we will need to build the image:
 
 .. code-block:: bash
 
-    docker compose --env-file=../../.env -f docker-compose-standard_worker.yaml -p sabatini-datajoint-pipeline_standard build --no-cache
+    docker compose --env-file=../../.env -f docker-compose-standard_worker.yaml -p wanglab-datajoint-pipeline_standard build --no-cache
 
 The build should complete without any errors. If you receive errors please check your ``.env`` file and make sure you have the correct paths.
 *Note: you only have to "build" the image once. If you make changes to the code, you will need to rebuild the image.*
@@ -53,7 +53,7 @@ The build should complete without any errors. If you receive errors please check
 
 .. code-block:: bash
 
-    docker compose --env-file=../../.env -f docker-compose-standard_worker.yaml -p sabatini-datajoint-pipeline_standard up -d
+    docker compose --env-file=../../.env -f docker-compose-standard_worker.yaml -p wanglab-datajoint-pipeline_standard up -d
 
 The worker should now be running in the background. You can check the status of the worker by running the following command:
 
@@ -71,7 +71,7 @@ If you wish to follow the container logs:
 
 .. code-block:: bash
 
-    docker compose --env-file=../../.env -f docker-compose-standard_worker.yaml -p sabatini-datajoint-pipeline_standard down
+    docker compose --env-file=../../.env -f docker-compose-standard_worker.yaml -p wanglab-datajoint-pipeline_standard down
 
 
 Spike Sorting Worker
@@ -80,7 +80,7 @@ Spike Sorting Worker
 The spike sorting worker is a bit more complicated than the standard worker. This is because the spike sorting worker requires our MATLAB license to run and the GPU to run.
 Please do not hesitate to contact the database manager for help with this section.
 
-1. First, create a local ``.env`` file in ``./docker/spike_sorting_worker/`` based on the `spike sorting example.env <https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/docker/spike_sorting_local_worker/example.env>`_.
+1. First, create a local ``.env`` file in ``./docker/spike_sorting_worker/`` based on the `spike sorting example.env <https://github.com/vncntprvst/wanglab-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/docker/spike_sorting_local_worker/example.env>`_.
 
 You will also need to edit the ``network.txt`` file to include our HMS MATLAB server. For both the ``.env`` and ``network.txt`` files, please contact the database manager for help.
 
@@ -94,7 +94,7 @@ Now that we're in the right place, we will need to build the image:
 
 .. code-block:: bash
 
-    docker compose --env-file=../../.env -f docker-compose-spike_sorting_worker.yaml -p sabatini-datajoint-pipeline_spike_sorting build --no-cache
+    docker compose --env-file=../../.env -f docker-compose-spike_sorting_worker.yaml -p wanglab-datajoint-pipeline_spike_sorting build --no-cache
 
 Check that the build completed without any errors. If you receive errors please check your ``.env`` and ``network.txt`` file and make sure you have the correct information.
 *Note: you only have to "build" the image once. If you make changes to the code, you will need to rebuild the image.*
@@ -103,7 +103,7 @@ Check that the build completed without any errors. If you receive errors please 
 
 .. code-block:: bash
 
-    docker compose --env-file=../../.env -f docker-compose-spike_sorting_worker.yaml -p sabatini-datajoint-pipeline_spike_sorting up -d
+    docker compose --env-file=../../.env -f docker-compose-spike_sorting_worker.yaml -p wanglab-datajoint-pipeline_spike_sorting up -d
 
 The worker should now be running in the background. You can check the status of the worker by running the following command:
 
@@ -121,16 +121,16 @@ If you wish to follow the container logs:
 
 .. code-block:: bash
 
-    docker compose --env-file=../../.env -f docker-compose-spike_sorting_worker.yaml -p sabatini-datajoint-pipeline_spike_sorting down
+    docker compose --env-file=../../.env -f docker-compose-spike_sorting_worker.yaml -p wanglab-datajoint-pipeline_spike_sorting down
 
 
 Calcium Imaging Worker
 ----------------------
 
 The calcium imaging worker is similar to the standard worker. We will be running Suite2P for this worker and the paramaters can be set using the
-provided `calcium_imaging notebook <https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/notebooks/calcium_imaging.ipynb>`_.
+provided `calcium_imaging notebook <https://github.com/vncntprvst/wanglab-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/notebooks/calcium_imaging.ipynb>`_.
 
-1. First, create a local ``.env`` file in ``./docker/calcium_imaging_worker/`` based on the `calcium example.env <https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/docker/calcium_imaging_worker/example.env>`_.
+1. First, create a local ``.env`` file in ``./docker/calcium_imaging_worker/`` based on the `calcium example.env <https://github.com/vncntprvst/wanglab-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/docker/calcium_imaging_worker/example.env>`_.
 
 You will need to fill in ``DJ_PASS`` (e.g. Datajoint Database Password), ``ROOT_DATA_DIR`` (e.g. local ``/Inbox`` data directory), ``PROCESSED_DATA_DIR`` (e.g. local ``/Outbox`` data directory).
 
@@ -144,7 +144,7 @@ Now that we're in the right place, we will need to build the image:
 
 .. code-block:: bash
 
-    docker compose --env-file=../../.env -f docker-compose-calcium_imaging_worker.yaml -p sabatini-datajoint-pipeline_calcium_imaging build --no-cache
+    docker compose --env-file=../../.env -f docker-compose-calcium_imaging_worker.yaml -p wanglab-datajoint-pipeline_calcium_imaging build --no-cache
 
 Check that the build completed without any errors. If you receive errors please check your ``.env`` file and make sure you have the correct paths.
 *Note: you only have to "build" the image once. If you make changes to the code, you will need to rebuild the image.*
@@ -153,7 +153,7 @@ Check that the build completed without any errors. If you receive errors please 
 
 .. code-block:: bash
 
-    docker compose --env-file=../../.env -f docker-compose-calcium_imaging_worker.yaml -p sabatini-datajoint-pipeline_calcium_imaging up -d
+    docker compose --env-file=../../.env -f docker-compose-calcium_imaging_worker.yaml -p wanglab-datajoint-pipeline_calcium_imaging up -d
 
 The worker should now be running in the background. You can check the status of the worker by running the following command:
 
@@ -171,4 +171,4 @@ If you wish to follow the container logs:
 
 .. code-block:: bash
 
-    docker compose --env-file=../../.env -f docker-compose-calcium_imaging_worker.yaml -p sabatini-datajoint-pipeline_calcium_imaging down
+    docker compose --env-file=../../.env -f docker-compose-calcium_imaging_worker.yaml -p wanglab-datajoint-pipeline_calcium_imaging down

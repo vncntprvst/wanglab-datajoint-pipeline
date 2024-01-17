@@ -22,7 +22,7 @@ def add_subdirs_to_sys_path(path):
 sys.path.insert(0, str(_dir_parent))
 add_subdirs_to_sys_path(_dir_parent)
 
-project = 'sabatini-datajoint'
+project = 'wanglab-datajoint'
 copyright = '2023, Datajoint, Janet Berrios'
 author = 'Datajoint, Janet Berrios'
 release = '0.1'
@@ -53,7 +53,7 @@ html_theme = 'sphinx_rtd_theme'
 #html_static_path = ['_static']
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'sabatini-datajoint-doc'
+htmlhelp_basename = 'wanglab-datajoint-doc'
 
 def setup(app):
     app.add_css_file('css/custom.css')

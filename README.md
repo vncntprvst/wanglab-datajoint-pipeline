@@ -1,27 +1,29 @@
 # Sabatini Lab - DataJoint Workflow Setup Instructions
 
-## For more information, please visit our [documentation page](https://sabatini-datajoint-pipeline.readthedocs.io/en/latest/index.html).
+## For more information, please visit our [documentation page](https://wanglab-datajoint-pipeline.readthedocs.io/en/latest/index.html).
 
 ## Installation and setting up local environment to access database
 
 ```
-conda create -n sabatini-datajoint -c conda-forge python=3.9 -y
+conda create -n wanglab-datajoint -c conda-forge python=3.9 -y
 
-conda activate sabatini-datajoint
+conda activate wanglab-datajoint
 conda install graphviz python-graphviz pydotplus ipykernel ipywidgets nb_conda_kernels jupyterlab
-
-git clone https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline
-
+```
+```
+git clone https://github.com/vncntprvst/wanglab-datajoint-pipeline
+```
 Navigate into cloned repository
-cd sabatini-datajoint-pipeline/
-
+`cd wanglab-datajoint-pipeline/`
+```
 pip install -r requirements.txt 
 pip install -e . 
+```
 - This step of pip installing in -editable mode, must be rerun if you want to test with local changes
 
-Create a copy of .example_dj_local_config.json, rename it to dj_local_conf.json and fill in database user/host/password credentials
+Create a copy of `.example_dj_local_config.json`, rename it to `dj_local_conf.json` and fill in database user/host/password credentials
 
-Launch Jupyter Notebook/Lab and set kernel to the sabatini-datajoint conda environment
+Launch Jupyter Notebook/Lab and set kernel to the wanglab-datajoint conda environment
 ```
 
 ## Windows Nvidia GPU Configuration (using Windows Subsystem for Linux (WSL))
@@ -88,17 +90,17 @@ Next,
 
 Run Docker Commands to build/up worker images
 
-    docker compose --env-file=../../.env -f docker-compose-standard_worker.yaml -p sabatini-datajoint-pipeline_standard build --no-cache
+    docker compose --env-file=../../.env -f docker-compose-standard_worker.yaml -p wanglab-datajoint-pipeline_standard build --no-cache
 
     --no-cache flag included will rebuild image without using cache
 
 After image has been built in order to bring up the container
-    docker compose --env-file=../../.env -f docker-compose-standard_worker.yaml -p sabatini-datajoint-pipeline_standard up -d
+    docker compose --env-file=../../.env -f docker-compose-standard_worker.yaml -p wanglab-datajoint-pipeline_standard up -d
 
     -d flag will start the container detached, in the background, and the current terminal window can continue to be used
 
 To bring down the container
-    docker compose --env-file=../../.env -f docker-compose-standard_worker.yaml -p sabatini-datajoint-pipeline_standard down
+    docker compose --env-file=../../.env -f docker-compose-standard_worker.yaml -p wanglab-datajoint-pipeline_standard down
 
     docker ps -a --> command to view all open containers, lists container-IDs
     docker logs [container-ID] -f --> command to view container logs (-f follows output)
@@ -135,16 +137,16 @@ Next,
 
 Run Docker Commands to build/up worker images
 
-    docker compose --env-file=../../.env -f docker-compose-spike_sorting_local_worker.yaml -p sabatini-datajoint-pipeline_spike build --no-cache
+    docker compose --env-file=../../.env -f docker-compose-spike_sorting_local_worker.yaml -p wanglab-datajoint-pipeline_spike build --no-cache
 
     --no-cache flag included will rebuild image without using cache
 
 After image has been built in order to bring up the container
-    docker compose --env-file=../../.env -f docker-compose-spike_sorting_local_worker.yaml -p sabatini-datajoint-pipeline_spike up -d
+    docker compose --env-file=../../.env -f docker-compose-spike_sorting_local_worker.yaml -p wanglab-datajoint-pipeline_spike up -d
 
     -d flag will start the container detached, in the background, and the current terminal window can continue to be used
 
 To bring down the container
-    docker compose --env-file=../../.env -f docker-compose-spike_sorting_local_worker.yaml -p sabatini-datajoint-pipeline_spike down
+    docker compose --env-file=../../.env -f docker-compose-spike_sorting_local_worker.yaml -p wanglab-datajoint-pipeline_spike down
 
 ```

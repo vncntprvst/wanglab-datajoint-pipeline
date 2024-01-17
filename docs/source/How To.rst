@@ -1,16 +1,16 @@
 How To
 ======
 
-The sabatini-datajoint-pipeline uses `DataJoint for Python <https://datajoint.com/docs/core/datajoint-python/0.14/>`_. 
+The wanglab-datajoint-pipeline uses `DataJoint for Python <https://datajoint.com/docs/core/datajoint-python/0.14/>`_. 
 
 The workflow is based on relational principles and makes it simple to keep track of the data provenance and to query the data.
 If you are new to DataJoint, we recommend getting started by learning about the principles and foundations that make up DataJoint.
 More information can be found in the `DataJoint documentation <https://datajoint.com/docs/core/datajoint-python/0.14/concepts/principles/>`_.
 
 We can run the workflow using the provided docker containers (for more information :doc:`WorkerDeployment`). Or, we can 
-run locally using the `provided jupyter notebooks <https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline/tree/7206d86b7cc264ed5b9c15b67ae84a16b27e708e/notebooks>`_.
+run locally using the `provided jupyter notebooks <https://github.com/vncntprvst/wanglab-datajoint-pipeline/tree/7206d86b7cc264ed5b9c15b67ae84a16b27e708e/notebooks>`_.
 These notebooks provide a good starting point and can be modified to fit your needs, just remember to check that your kernel is set
-to the ``sabatini-datajoint`` kernel.  
+to the ``wanglab-datajoint`` kernel.  
 
 Setting up your data directories
 #################################
@@ -71,7 +71,7 @@ Importantly, your ``Subject``, ``Session``, and ``SessionDirectory`` structure w
    
 2. Now, you will be able to view all the schemas available to you on the left hand side. 
    
-3. Navigate to the ``sabatini_dj_subject`` scehma and click on the ``Subject`` table.
+3. Navigate to the ``fwanglab_dj_subject`` scehma and click on the ``Subject`` table.
    
 4. Click ``Insert`` and fill out the form.
    
@@ -80,7 +80,7 @@ Importantly, your ``Subject``, ``Session``, and ``SessionDirectory`` structure w
     :width: 100%
     :alt: subject_insert
 
-5. Then, navigate to the ``sabatini_dj_session`` schema and click on the ``Session`` table.
+5. Then, navigate to the ``fwanglab_dj_session`` schema and click on the ``Session`` table.
    
 6. Click ``Insert`` and fill out the form.
    
@@ -89,7 +89,7 @@ Importantly, your ``Subject``, ``Session``, and ``SessionDirectory`` structure w
     :width: 100%
     :alt: session
 
-7. Lastly, within the ``sabatini_dj_session`` schema, click on the ``SessionDirectory`` table and fill out the form. 
+7. Lastly, within the ``fwanglab_dj_session`` schema, click on the ``SessionDirectory`` table and fill out the form. 
    
 .. image:: ../media/session_dir.png
     :align: center
@@ -112,7 +112,7 @@ There are two ways to do this:
 Here, we will cover how to insert the data through our python provided GUIs. The GUIs will automatically login to the database using the credentials
 you provided in the ``dj_local_conf.json`` file.
 
-To launch the GUIs, you will need to activate the ``sabatini-datajoint`` environment and run the following command:
+To launch the GUIs, you will need to activate the ``wanglab-datajoint`` environment and run the following command:
 
 .. code-block:: bash
     
@@ -266,7 +266,7 @@ Creating a .toml file for photometry processing
 ###############################################
 To help create a ``.toml`` file, we have provided a python GUI that will guide you through the proper creation of the file. You can find the GUI in the ``TOML-metafile-scripts`` directory.
 
-To start, open a python terminal and activate your sabatini-datajoint envrionment:
+To start, open a python terminal and activate your wanglab-datajoint envrionment:
 
 .. code-block:: python
 
@@ -371,7 +371,7 @@ Once you have inserted the ``Subject``, ``Session``, and ``SessionDirectory`` ta
 up the standard_worker docker container detailed in :doc:`WorkerDeployment`. Then, you will need to up the calcium_imaging_worker docker container.
 
 A simple way to run the pipeline is to run the provided
-`Calcium Imaging Jupyter Notebook <https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/notebooks/calcium_imaging.ipynb>`_.
+`Calcium Imaging Jupyter Notebook <https://github.com/vncntprvst/wanglab-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/notebooks/calcium_imaging.ipynb>`_.
 
 Table organization
 ------------------
@@ -392,7 +392,7 @@ organized in the following format: ``/Inbox/Subject/dlc_behavior_videos/*.avi``.
 
 Running the DeepLabCut pipeline
 -------------------------------
-This is a manual pipeline. You will need to run the provided `DeepLabCut jupyter notebook <https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/notebooks/dlc.ipynb>`_.
+This is a manual pipeline. You will need to run the provided `DeepLabCut jupyter notebook <https://github.com/vncntprvst/wanglab-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/notebooks/dlc.ipynb>`_.
 You will need to edit all of the relevant information and paths in the notebook.
 
 Table organization
@@ -404,7 +404,7 @@ The DeepLabCut processing pipeline will populate the ``model`` table.
 
 General pipeline architecture
 #############################
-For any questions regarding the pipeline architecture, the whole pipeline can be visualized in our `GitHub page <https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/notebooks/pipeline-architecture.ipynb>`_.
+For any questions regarding the pipeline architecture, the whole pipeline can be visualized in our `GitHub page <https://github.com/vncntprvst/wanglab-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/notebooks/pipeline-architecture.ipynb>`_.
 
 For pipelines that were designed using DataJoint Elements (e.g. Event, Ephys, Calcium Imaging, DLC), more information can be found in the `DataJoint Elements documentation <https://datajoint.com/docs/elements/>`_.
 

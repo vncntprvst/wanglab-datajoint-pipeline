@@ -14,7 +14,7 @@ datajoint-utilities @ git+https://github.com/datajoint-company/datajoint-utiliti
 scanreader @ git+https://github.com/atlab/scanreader.git
 suite2p
 graphviz
-tdt==0.4.3
+# tdt==0.4.3
 tifffile==2021.11.2
 nd2
 seaborn==0.12.0
@@ -22,3 +22,6 @@ pySimpleGUI
 fastparquet
 sphinx_rtd_theme
 pymatreader
+spyglass-neuro
+spikeinterface[full,widgets]
+ghostipy

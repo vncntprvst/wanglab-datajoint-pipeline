@@ -21,7 +21,7 @@ SciViz: # top level tab
               # this example of image_route has the image in the /src dir
               image_route: ../../logo.svg
               text: |
-                # Welcome to the data navigator for the SabatiniLab data pipeline
+                # Welcome to the data navigator for the Wang lab data pipeline
     Workflow Monitor:
       route: /workflow_monitor
       grids:
@@ -41,8 +41,8 @@ SciViz: # top level tab
                 def restriction(**kwargs):
                     return dict(**kwargs)
               dj_query: >
-                def dj_query(sabatini_dj_workerlog):
-                    cls = sabatini_dj_workerlog.WorkerLog
+                def dj_query(fwanglab_dj_workerlog):
+                    cls = fwanglab_dj_workerlog.WorkerLog
                     backtrack_minutes = 60
                     recent = (
                         cls.proj(
@@ -59,7 +59,7 @@ SciViz: # top level tab
                     
                     return {'query': recent_jobs, 'fetch_args': {'order_by': 'minutes_since_newest ASC'}}
             Error Log:
-              route: /sabatini_dj_errorlog
+              route: /fwanglab_dj_errorlog
               x: 0
               y: 1
               height: 1
@@ -69,11 +69,11 @@ SciViz: # top level tab
                 def restriction(**kwargs):
                     return dict(**kwargs)
               dj_query: >
-                def dj_query(sabatini_dj_workerlog):
-                    cls = sabatini_dj_workerlog.ErrorLog.proj(..., '-error_timestamp', minutes_elapsed='TIMESTAMPDIFF(MINUTE, error_timestamp, UTC_TIMESTAMP())')
+                def dj_query(fwanglab_dj_workerlog):
+                    cls = fwanglab_dj_workerlog.ErrorLog.proj(..., '-error_timestamp', minutes_elapsed='TIMESTAMPDIFF(MINUTE, error_timestamp, UTC_TIMESTAMP())')
                     return {'query': cls, 'fetch_args': {'order_by': 'minutes_elapsed ASC'}}
             Jobs Log:
-              route: /sabatini_dj_jobslog
+              route: /fwanglab_dj_jobslog
               x: 0
               y: 2
               height: 1
@@ -83,8 +83,8 @@ SciViz: # top level tab
                 def restriction(**kwargs):
                     return dict(**kwargs)
               dj_query: >
-                def dj_query(sabatini_dj_workerlog):
-                    workerlog_vm = sabatini_dj_workerlog
+                def dj_query(fwanglab_dj_workerlog):
+                    workerlog_vm = fwanglab_dj_workerlog
                     org_name, wf_name = workerlog_vm.schema.database.replace('support_', '').split('_')[:2]
                     db_prefix = f'{org_name}_{wf_name}'
                     connection = dj.conn(
@@ -106,7 +106,7 @@ SciViz: # top level tab
                     jobs_table = jobs_table.proj(..., minutes_elapsed='TIMESTAMPDIFF(MINUTE, timestamp, UTC_TIMESTAMP())')
                     return {'query': jobs_table, 'fetch_args': {'order_by': 'status DESC, minutes_elapsed ASC'}}
             Worker Log:
-              route: /sabatini_dj_workerlog
+              route: /fwanglab_dj_workerlog
               x: 0
               y: 3
               height: 1
@@ -116,8 +116,8 @@ SciViz: # top level tab
                 def restriction(**kwargs):
                     return dict(**kwargs)
               dj_query: >
-                def dj_query(sabatini_dj_workerlog):
-                      cls = sabatini_dj_workerlog.WorkerLog.proj(..., minutes_elapsed='TIMESTAMPDIFF(MINUTE, process_timestamp, UTC_TIMESTAMP())')
+                def dj_query(fwanglab_dj_workerlog):
+                      cls = fwanglab_dj_workerlog.WorkerLog.proj(..., minutes_elapsed='TIMESTAMPDIFF(MINUTE, process_timestamp, UTC_TIMESTAMP())')
                       return {'query': cls, 'fetch_args': {'order_by': 'minutes_elapsed ASC'}}
     Ephys Session Overview:
       route: /session_overview_ephys
@@ -138,9 +138,9 @@ SciViz: # top level tab
                 def restriction(**kwargs):
                     return dict(**kwargs)
               dj_query: >
-                def dj_query(sabatini_dj_session, sabatini_dj_ephys):
-                    session = sabatini_dj_session
-                    ephys = sabatini_dj_ephys
+                def dj_query(fwanglab_dj_session, fwanglab_dj_ephys):
+                    session = fwanglab_dj_session
+                    ephys = fwanglab_dj_ephys
 
                     session_process_status = session.Session
 
@@ -183,10 +183,10 @@ SciViz: # top level tab
                 def restriction(**kwargs):
                     return dict(**kwargs)
               dj_query: >
-                def dj_query(sabatini_dj_session, sabatini_dj_imaging, sabatini_dj_scan):
-                    session = sabatini_dj_session
-                    imaging = sabatini_dj_imaging
-                    scan = sabatini_dj_scan
+                def dj_query(fwanglab_dj_session, fwanglab_dj_imaging, fwanglab_dj_scan):
+                    session = fwanglab_dj_session
+                    imaging = fwanglab_dj_imaging
+                    scan = fwanglab_dj_scan
 
                     session_process_status = session.Session
 
@@ -231,9 +231,9 @@ SciViz: # top level tab
                 def restriction(**kwargs):
                     return dict(**kwargs)
               dj_query: >
-                def dj_query(sabatini_dj_session, sabatini_dj_photometry):
-                    session = sabatini_dj_session
-                    photometry = sabatini_dj_photometry
+                def dj_query(fwanglab_dj_session, fwanglab_dj_photometry):
+                    session = fwanglab_dj_session
+                    photometry = fwanglab_dj_photometry
 
                     session_process_status = session.Session
 
@@ -264,10 +264,10 @@ SciViz: # top level tab
                 def restriction(**kwargs):
                     return dict(**kwargs)
               dj_query: >
-                def dj_query(sabatini_dj_session, sabatini_dj_event, sabatini_dj_ingestion):
-                    session = sabatini_dj_session
-                    event = sabatini_dj_event
-                    ingestion = sabatini_dj_ingestion
+                def dj_query(fwanglab_dj_session, fwanglab_dj_event, fwanglab_dj_ingestion):
+                    session = fwanglab_dj_session
+                    event = fwanglab_dj_event
+                    ingestion = fwanglab_dj_ingestion
                     
                     session_process_status = session.Session
 
@@ -300,9 +300,9 @@ SciViz: # top level tab
                 def restriction(**kwargs):
                     return dict(**kwargs)
               dj_query: >
-                def dj_query(sabatini_dj_session, sabatini_dj_model):
-                    session = sabatini_dj_session
-                    model = sabatini_dj_model
+                def dj_query(fwanglab_dj_session, fwanglab_dj_model):
+                    session = fwanglab_dj_session
+                    model = fwanglab_dj_model
 
                     session_process_status = session.Session
 

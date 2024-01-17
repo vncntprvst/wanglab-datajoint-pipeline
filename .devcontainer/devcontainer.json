@@ -1,5 +1,5 @@
 {
-	"name": "SabatiniLab DataJoint Pipeline",
+	"name": "Fan Wang Lab DataJoint Pipeline",
 	"dockerComposeFile": "docker-compose.yaml",
 	"service": "app",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",

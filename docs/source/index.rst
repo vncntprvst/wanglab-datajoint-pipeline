@@ -1,9 +1,9 @@
-.. sabatini-datajoint documentation master file, created by
+.. wanglab-datajoint documentation master file, created by
    sphinx-quickstart on Thu Jul 13 09:24:23 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to sabatini-datajoint's documentation!
+Welcome to wanglab-datajoint's documentation!
 ==============================================
 
 
@@ -16,7 +16,7 @@ Here, you will find our DataJoint workflows for:
 * Neuropixel Electrophysiology Recordings
 * and more to come!
 
-`Github Repository <https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline>`_
+`Github Repository <https://github.com/vncntprvst/wanglab-datajoint-pipeline>`_
 
 
 --------
@@ -49,4 +49,4 @@ Indices and tables
    :alt: datajoint
 
 
-.. _github: https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline
+.. _github: https://github.com/vncntprvst/wanglab-datajoint-pipeline

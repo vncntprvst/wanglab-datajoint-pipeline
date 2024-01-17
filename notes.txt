@@ -1,1 +1,1 @@
-Workflow Setup for Sabatini lab
+Workflow Setup for the Wang lab at MIT

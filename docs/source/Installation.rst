@@ -1,7 +1,7 @@
 Installation
 ============
 
-The sabatini-datajoint pipeline can be run locally or through Docker containers and requires access to our AWS server. To get started, you will need to install Docker and get access to our AWS server
+The wanglab-datajoint pipeline can be run locally or through Docker containers and requires access to our AWS server. To get started, you will need to install Docker and get access to our AWS server
 by reaching out to HMS IT. 
 
 Requirements
@@ -25,17 +25,17 @@ Installation
    
 .. literalinclude:: ../helpers/create_env.txt
 
-You will need to activate the environment with ``conda activate sabatini-datajoint`` and navigate into the ``sabatini-datajoint`` directory.
+You will need to activate the environment with ``conda activate wanglab-datajoint`` and navigate into the ``wanglab-datajoint`` directory.
 
 **Optional**: If you are planning to make changes to the code, you may want to install the package in editable mode. This will allow you to make changes to the code and have them reflected in the Docker containers.
 You can do this by running ``pip install -e .`` 
 
-2. Create a copy of `.example_dj_local_conf.yaml <https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/.example_dj_local_config.json>`_ 
+2. Create a copy of `.example_dj_local_conf.yaml <https://github.com/vncntprvst/wanglab-datajoint-pipeline/blob/5d38f22f2caabf8cc91cb6fd18be2dbfaa632a2c/.example_dj_local_config.json>`_ 
 and rename it to `dj_local_conf.yaml`. 
 
 3. Fill in the appropriate information for the ``database.host``, ``database.user``, and ``database.password`` fields.
 
-4. You may then launch ``jupyter notebook`` and navigate to the ``notebooks`` directory to run the notebooks. Please make sure to set your kernel to ``sabatini-datajoint``.
+4. You may then launch ``jupyter notebook`` and navigate to the ``notebooks`` directory to run the notebooks. Please make sure to set your kernel to ``wanglab-datajoint``.
    
 
 WSL Configuration for NVIDIA GPU Support
@@ -94,13 +94,13 @@ O2 Configuration and Installation
    
 .. code-block:: bash
 
-    virtualenv sabatini-datajoint
+    virtualenv wanglab-datajoint
 
 4. Then activate your venv.
    
 .. code-block:: bash
 
-    source sabatini-datajoint/bin/activate
+    source wanglab-datajoint/bin/activate
 
 5. Begin by installing jupyter and jupyterlab
    
@@ -112,8 +112,8 @@ O2 Configuration and Installation
    
 .. code-block:: bash
 
-    git clone https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline
-    cd sabatini-datajoint-pipeline
+    git clone https://github.com/vncntprvst/wanglab-datajoint-pipeline
+    cd wanglab-datajoint-pipeline
     pip install -r requirements.txt
        
 7. Following successful install, you can edit your local_config.json with your credentials

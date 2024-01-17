@@ -3,7 +3,7 @@ requires = ["setuptools>=62.0", "wheel>=0.37"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "sabatinilab-pipeline"
+name = "wanglab-pipeline"
 version = "0.1.0"
 description = "Extracellular electrophysiology, Calcium Imaging, Fiber Photometry, DLC, Integrated behavior pipeline"
 readme = "README.md"
@@ -68,8 +68,8 @@ dev = [
 run_workflow = "workflow.populate.process:cli"
 
 [project.urls]
-Homepage = "https://github.com/bernardosabatinilab/sabatini-datajoint-pipeline"
-Documentation = "https://sabatini-datajoint-pipeline.readthedocs.io/en/latest/index.html"
+Homepage = "https://github.com/vncntprvst/wanglab-datajoint-pipeline"
+Documentation = "https://wanglab-datajoint-pipeline.readthedocs.io/en/latest/index.html"
 DataJoint = "https://docs.datajoint.org/"
 
 [tool.setuptools]
